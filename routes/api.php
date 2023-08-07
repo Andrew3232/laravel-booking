@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\AdminController;
+use App\Http\Controllers\Api\Reservation\ReservationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware('auth:sanctum')->group(function (){
+    Route::apiResource('reservations', ReservationController::class)
+        ->only('index', 'show', 'store', 'destroy');
+
+    Route::apiResource('admin.reservations', AdminController::class)
+        ->middleware('admin')
+        ->only('index', 'show', 'update', 'destroy');
 });
