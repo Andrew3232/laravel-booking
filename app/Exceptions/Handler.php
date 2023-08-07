@@ -3,6 +3,9 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -26,5 +29,27 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+    /**
+     * @param Request $request
+     * @param Throwable $exception
+     * @return Response
+     * @throws Throwable
+     */
+    public function render($request, Throwable $exception): Response
+    {
+        if ($exception instanceof BaseException) {
+            return new JsonResponse(
+                [
+                    'errors' => [
+                        'message' => $exception->getMessage(),
+                        'code' => $exception->getCode(),
+                    ],
+                ],
+                Response::HTTP_BAD_REQUEST
+            );
+        }
+        return parent::render($request, $exception);
     }
 }
