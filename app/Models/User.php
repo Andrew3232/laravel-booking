@@ -49,7 +49,7 @@ class User extends Authenticatable
 
     public function reserves(): HasMany
     {
-        return $this->hasMany(Reserve::class);
+        return $this->hasMany(Reservation::class);
     }
 
     public function getId(): int
