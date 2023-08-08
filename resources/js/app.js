@@ -7,20 +7,25 @@
 import './bootstrap';
 import { createApp } from 'vue';
 import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/js/bootstrap.esm.js'
 import '@popperjs/core'
+import router from '@/routers'
+import store from '@/store'
+import './../sass/app.scss';
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
  */
+import App from "@/components/layouts/App.vue";
 
-const app = createApp({});
+const app = createApp(App);
 
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
-
+import Datepicker from 'vuejs3-datepicker';
+app.component('datepicker', Datepicker);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -38,5 +43,6 @@ app.component('example-component', ExampleComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-
-app.mount('#app');
+app.use(router)
+    .use(store)
+    .mount('#app');
