@@ -26,6 +26,9 @@ class User extends Authenticatable
         'role',
     ];
 
+    protected $appends = [
+        'isAdmin'
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -75,5 +78,10 @@ class User extends Authenticatable
     public function isAdmin(): bool
     {
         return $this->role === UserRole::ADMIN;
+    }
+
+    public function getIsAdminAttribute(): bool
+    {
+        return $this->isAdmin();
     }
 }
