@@ -2,6 +2,44 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-base-avenir: "Avenir Next Cyr Demi";
+$font-family-base-cormorant: "Cormorant Garamond";
+$font-family-base-caravan: "Caravan";
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+$brown: #AE8B70;
+$green: #293C39;
+$yellow: #ffc107 !default;
+$red: #dc3545 !default;
+$gray: #9DB1B0;
+$primary: $brown;
+$teal: #26B69F;
+$white: #FFFFFF;
+$light-white: #FEFBF9;
+$bg-light-white: $light-white;
+$btn-link-hover-color: #FFFFFF;
+$body-bg: $light-white;
+$input-border-color: $green;
+$input-border-width: 1px;
+$input-border-color: $green;
+
+$colors: (
+    "brown": $brown,
+    "green": $green,
+    "gray": $gray,
+    "teal": $teal,
+    "light-white": $light-white,
+    "white": $white,
+);
+
+$theme-colors: (
+    "primary": $primary,
+    //"secondary":  $secondary,
+    //"success":    $success,
+    //"info":       $info,
+    //"warning":    $warning,
+    //"danger":     $danger,
+    //"light":      $light,
+    //"dark":       $dark
+);

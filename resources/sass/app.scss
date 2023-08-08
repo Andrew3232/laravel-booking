@@ -1,8 +1,59 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import "font/AvenirNextCyr";
+@import "font/CormorantGaramond";
+@import "font/Caravan";
 
 // Variables
 @import 'variables';
+@import "inputs";
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+:root {
+    background-color: $light-white;
+}
+body{
+    font-family: $font-family-base-avenir;
+}
+
+.bg-dark-green {
+    background-color: #293C39;
+}
+
+.flex-1 {
+    flex: 1 1 0%;
+}
+.flex-initial {
+    flex: 0 1 auto;
+}
+.flex-none {
+    flex: none;
+}
+
+.btn {
+    font-family: "Avenir Next Cyr Demi";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+    border-radius: 50px;
+    border: 1px solid;
+    padding: 15px 37px;
+
+    &:hover {
+        color: $primary !important;
+    }
+}
+
+button.btn-hover-white:hover{
+    color: $white !important;
+}
+button.btn-hover-dark-green:hover{
+    color: #293C39 !important;
+}
+
+.btn-lg {
+    padding: 20px 60px;
+}
